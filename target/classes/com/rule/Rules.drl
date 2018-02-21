@@ -1,0 +1,16 @@
+package com.rule
+
+import com.javainuse.model.Product
+
+rule "500"
+	when 
+		productObject: Product(type<=500)
+	then
+		productObject.setDiscount("application rejected");
+	end
+rule "650"
+	when 
+		productObject: Product(type>=650)
+	then
+		productObject.setDiscount("approved");
+	end
